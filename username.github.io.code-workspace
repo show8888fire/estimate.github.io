@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "username.github.io",
+			"path": "."
+		},
+		{
+			"name": "img",
+			"path": "../portfolio-template-basic/img"
+		},
+		{
+			"name": "css",
+			"path": "../portfolio-template-basic/css"
+		},
+		{
+			"name": "js",
+			"path": "../portfolio-template-basic/js"
+		}
+	],
+	"settings": {}
+}
