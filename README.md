@@ -50,16 +50,24 @@ JavaScriptの経験を踏まえ、次のステップとしてPythonを学びた�
 ## 主な機能
 
 ### 材料費取得（スクレイピング）
+(https://github.com/user-attachments/assets/79528b99-2e8e-445e-879c-e760450485ac)
+(https://github.com/user-attachments/assets/19fc5a89-11b1-40d3-b8a1-3f75ea59543a)
 - 幅・高さ・奥行きをmm単位で入力し、「材料費取得」ボタンを押すと、外部ウェブサイトから最新の材料費が自動的に取得され、計算フィールドに反映されます。
 - 材料の右側にあるドロップダウンメニューから材料を選択することで、対応するWebページから材料費をスクレイピングすることが可能です。
 - ※著作権については、対象ウェブサイト側で非営利目的の利用が許可されていることを確認済みです。利用規約の変更に注意しながら、データの取得にはスクレイピングポリシーに従っています。
 
 ### 計算機（Tkinter）
+(https://github.com/user-attachments/assets/a89aec68-edff-4dc5-a012-2b8d35f9b9db)
+(https://github.com/user-attachments/assets/ccf04f09-d98d-4936-8908-b312a73d34b2)
+(https://github.com/user-attachments/assets/f7ff5b9e-3588-4517-b792-0830ca61735f)
 - 加工コストの計算は別の画面で行います。見積もり画面の「加工コストの計算」ボタンを押すことで計算画面が立ち上がります。
 - 加工計算画面で「加工名を追加」ボタンを押し、加工名と各パラメーターを入力可能です。
 - 「計算」ボタンで合計値を出力し、「終了」ボタンで画面を閉じると、出力した合計値が見積もりの加工コストフィールドに反映されます。
 
 ### 画像処理
+(https://github.com/user-attachments/assets/38b4af45-60c8-4c37-b43e-9a066a275766)
+(https://github.com/user-attachments/assets/293d59d4-abba-433c-820d-4e8fa4b0197f)
+(https://github.com/user-attachments/assets/67c6e403-bc35-4c20-9e14-91c4849461a5)
 - 「画像読み込み」ボタンの横にあるフィールドに画像ファイル名を入力し、ボタンを押すと画像処理が開始され、結果がJSONファイルに保存されます。
 - 検出にはcv2、pyocr、pytesseractの3つを使用し、精度の高い検出を実現しています。
 
