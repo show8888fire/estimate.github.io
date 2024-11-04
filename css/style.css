@@ -16,6 +16,7 @@ img {
   height: auto;
   vertical-align: bottom;
   border-style: none;
+  margin: 1%;
 }
 
 
@@ -151,6 +152,12 @@ img {
   padding: 0 40px;
 }
 
+.mv-main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .mv-title {
   font-size: 60px;
   font-weight: bold;
@@ -169,6 +176,31 @@ img {
 .mv-text {
   font-size: 16px;
   line-height: 1.8;
+}
+
+.scroll-indicator {
+
+  text-align: center;
+  font-size: 16px;
+  color: #7a7676;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.scroll-indicator .arrow {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 5px;
+  animation: arrow-bounce 0.6s infinite alternate;
+}
+
+@keyframes arrow-bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px); /* 上に5px移動 */
+  }
 }
 
 /*--------------------------------
@@ -218,6 +250,29 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: -50px;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.skill-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 3.5;
+
+}
+
+.skill-menu p {
+  margin-bottom: 70px;
+}
+
+.skill-detail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+
 }
 
 .skill-item {
@@ -253,7 +308,7 @@ img {
 .profile {
   display: flex;
   flex-wrap: wrap;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 .profile-img {
@@ -269,7 +324,7 @@ img {
 }
 
 .profile-body p {
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.8;
 }
 
@@ -324,12 +379,16 @@ img {
 /*--------------------------------
  下層：Worksページ
 ---------------------------------*/
+.Deliverables{
+  margin-bottom: 80px;
+}
+
 .article {
   padding: 80px 0;
 }
 
 .article-container {
-  max-width: 1040px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -340,7 +399,7 @@ img {
 }
 
 .article-body {
-  max-width: 720px;
+
   margin: 0 auto;
   margin-bottom: 80px;
 }
@@ -348,7 +407,7 @@ img {
 .article-body h3 {
   position: relative;
   font-size: 18px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   padding-left: 1em;
 }
 
@@ -369,9 +428,57 @@ img {
 
 .article-body p {
   font-size: 15px;
-  line-height: 1.8;
+  line-height: 1.;
   margin-bottom: 30px;
 }
+
+.image-group{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+figcaption{
+  margin: 2% 0 5% 0;
+}
+
+h2 {
+  margin: 20px 0;
+}
+
+h4 {
+  margin: 10px 0;
+}
+
+.line-container div {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.blue_line::before {
+  content: "ー";
+  color: blue;
+  font-size: 30px;
+}
+
+.red_line::before {
+  content: "ー";
+  color: red;
+  font-size: 30px;
+}
+
+.green_line::before {
+  content: "ー";
+  color: green;
+  font-size: 30px;
+}
+
+.purple_line::before {
+  content: "ー";
+  color: purple;
+  font-size: 30px;
+}
+
 
 .home-link {
   text-align: center;
@@ -485,6 +592,8 @@ img {
     display: block;
     margin-bottom: 0;
   }
+
+
 
   .skill-item {
     width: 100%;

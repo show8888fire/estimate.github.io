@@ -11,6 +11,12 @@ $(function () {
     return false;
   });
 
+  $(document).on("scroll", function () {
+
+      $("#scroll-indicator").css("opacity", "0");
+
+  });
+
   //ページトップ
   $("#js-page-top").on("click", function () {
     $("body,html").animate({ scrollTop: 0, }, 300);

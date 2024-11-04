@@ -9,7 +9,7 @@
   <meta property='og:description' content='TARO YAMADAのポートフォリオサイトです。'>
   <meta property="og:image" content="img/ogp.png">
   <meta name="description" content="TARO YAMADAのポートフォリオサイトです" />
-  <title>TARO YAMADA ポートフォリオ</title>
+  <title>NAGAHO YASUDA ポートフォリオ</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
@@ -26,7 +26,7 @@
     <header class="header ">
       <div class="container">
         <h1 class="header-logo">
-          <a href=".">TARO YAMADA</a>
+          <a href=".">NAGAHO YASUDA</a>
         </h1>
         <nav class="gnav">
           <ul class="gnav-list">
@@ -45,14 +45,22 @@
       <!-- mv -->
       <div class="mv">
         <div class="mv-container">
-          <p class="mv-title">TARO YAMADA</p>
-          <p class="mv-subtitle">PORTFOLIO</p>
-          <p class="mv-text">
-            ユーザーとお客様が心から満足できる<br class="sp-only">サイトをお作りいたします。<br>
-            デザインとコーディングは<br class="sp-only">おまかせください。<br>
-          </p>
+          <div class="mv-main">
+            <p class="mv-title">NAGAHO YASUDA</p>
+            <p class="mv-subtitle">PORTFOLIO</p>
+            <p class="mv-text">
+
+            </p>
+          </div>
         </div>
+
       </div>
+      <div class="scroll-indicator" id="scroll-indicator">
+        <p class="scroll-text">下にスクロール</p>
+        <span class="arrow">V</span>
+        
+      </div>
+
       <!-- /mv -->
 
       <!-- works -->
@@ -61,30 +69,21 @@
           <h2 class="title">WORKS</h2>
           <div class="works-list">
             <a class="works-item" href="works-template.html">
-              <div class="works-img"><img src="img/works-sample-thumb.jpg" alt="" /></div>
+              <div class="works-img"><img src="img/estimation_logo.png" alt="" /></div>
               <p class="works-name">作品名が入る</p>
-              <p class="works-info">Design / Coding(Responsive)</p>
+              <p class="works-info">Python ＜ OpenCV / tkinter</p>
             </a>
             <a class="works-item" href="works-template.html">
-              <div class="works-img"><img src="img/works-dummy-thumb.jpg" alt="" /></div>
-              <p class="works-name">作品名が入る</p>
-              <p class="works-info">Design / Coding(Responsive) / WordPress</p>
+              <div class="works-img"><img src="img/coming soon.png" alt="" /></div>
+              <p class="works-name">coming soon</p>
+              <p class="works-info">coming soon</p>
             </a>
             <a class="works-item" href="works-template.html">
-              <div class="works-img"><img src="img/works-dummy-thumb.jpg" alt="" /></div>
-              <p class="works-name">作品名が入る</p>
-              <p class="works-info">Design</p>
+              <div class="works-img"><img src="img/coming soon.png" alt="" /></div>
+              <p class="works-name">coming soon</p>
+              <p class="works-info">coming soon</p>
             </a>
-            <a class="works-item" href="works-template.html">
-              <div class="works-img"><img src="img/works-dummy-thumb.jpg" alt="" /></div>
-              <p class="works-name">作品名が入る</p>
-              <p class="works-info">Banner Design</p>
-            </a>
-            <a class="works-item" href="works-template.html">
-              <div class="works-img"><img src="img/works-dummy-thumb.jpg" alt="" /></div>
-              <p class="works-name">作品名が入る</p>
-              <p class="works-info">Banner Design</p>
-            </a>
+
           </div>
         </div>
       </section>
@@ -95,54 +94,75 @@
         <div class="container">
           <h2 class="title">SKILL</h2>
           <div class="skill-list">
-            <div class="skill-item">
-              <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
-              <div class="skill-body">
-                <h3 class="skill-name">HTML5/CSS3</h3>
-                <p class="skill-text">
-                  テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。</p>
-              </div>
+            <div class="skill-menu">
+              <h3>開発実績のあるスキル</h3>
+              <p> 自身で一から作成した事のあるスキル一覧</p>
+                <div class="skill-detail">
+                  <div class="skill-item">
+                    <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
+                    <div class="skill-body">
+                      <h3 class="skill-name">Pyrhon</h3>
+                      <p class="skill-text">
+                        画像処理を使った自動見積もり制作ソフトの作成
+                        ＊教材をもとに疑似的なネットワークの作成、暗号化プログラムの作成
+                      </p>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
+                    <div class="skill-body">
+                      <h3 class="skill-name">JavaScript/HTML5/CSS3</h3>
+                      <p class="skill-text">
+                        いくつかのwebサイトの作成</p>
+                    </div>
+                  </div>
+                </div>
             </div>
-            <div class="skill-item">
-              <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
-              <div class="skill-body">
-                <h3 class="skill-name">WordPress</h3>
-                <p class="skill-text">
-                  テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。</p>
-              </div>
+
+            <div class="skill-menu">
+              <h3>記述経験のあるスキル</h3>
+              <p> 教材を元に作成した事のあるスキル一覧</p>
+                <div class="skill-detail">
+                  <div class="skill-item">
+                    <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
+                    <div class="skill-body">
+                      <h3 class="skill-name">PHP</h3>
+                      <p class="skill-text">
+                        教材をもとに簡素なECサイトのシステムの作成
+                        mySQLで簡単なデータベース操作
+                      </p>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
+                    <div class="skill-body">
+                      <h3 class="skill-name">Java</h3>
+                      <p class="skill-text">
+                        簡素なGUIの作成
+                      </p>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
+                    <div class="skill-body">
+                      <h3 class="skill-name">コマンドプログラム(OS:Ubuntu, CentOS)</h3>
+                      <p class="skill-text">                       
+                        VMwareを使用。簡単なファイル操作
+                      </p>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
+                    <div class="skill-body">
+                      <h3 class="skill-name">AWS</h3>
+                      <p class="skill-text">
+                        AWSの公式デベロッパーガイドに基づいた構築
+                      </p>
+                    </div>
+                  </div>
+                </div>
             </div>
-            <div class="skill-item">
-              <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
-              <div class="skill-body">
-                <h3 class="skill-name">JavaScript</h3>
-                <p class="skill-text">
-                  テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。</p>
-              </div>
-            </div>
-            <div class="skill-item">
-              <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
-              <div class="skill-body">
-                <h3 class="skill-name">Photoshop</h3>
-                <p class="skill-text">
-                  テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。</p>
-              </div>
-            </div>
-            <div class="skill-item">
-              <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
-              <div class="skill-body">
-                <h3 class="skill-name">Illustrator</h3>
-                <p class="skill-text">
-                  テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。</p>
-              </div>
-            </div>
-            <div class="skill-item">
-              <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
-              <div class="skill-body">
-                <h3 class="skill-name">XD</h3>
-                <p class="skill-text">
-                  テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。</p>
-              </div>
-            </div>
+           
           </div>
         </div>
       </section>
@@ -158,11 +178,21 @@
             </p>
             <div class="profile-body">
               <p>
-                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。
+                私は幼少期より自然豊かな山間で、約10匹の犬猫たちに囲まれ育ちました。<br>
+                幼い頃から物事の構造や根本的な仕組みに興味を持ち、宇宙や生物、数学といった分野に関心を抱いてきました。<br>
+                高校生の時に初めてプログラミングに触れ、コンピュータの仕組みを深く考えるようになりました。<br>
+                この経験からITの分野でキャリアを築きたいと考え、浜松情報専門学校のセキュリティネットワーク科に進学しました。<br><br>
+
+                専門学校では、主に以下の2点について学びました。<br>
+                ネットワークとセキュリティ：プログラミングを通じて、ネットワークおよびセキュリティの基礎を学びました。<br>
+                ネットワーク構築：スイッチやルーターを用いて実際にネットワークを構築し、実践的なスキルを身につけました。<br><br>
+                
+                現在は金属加工会社で働きながら、プログラミングのスキル向上に励んでいます。<br>
+                ITとネットワーク技術という現代社会を支える二つの柱を学び、<br>
+                私も多くの人を支えられる存在を目指して邁進してまいります。
+                
               </p>
-              <p>
-                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。
-              </p>
+      
             </div>
           </div>
         </div>
@@ -174,12 +204,12 @@
         <div class="container">
           <h2 class="title">CONTACT</h2>
           <p class="lead">
-            お問い合わせは、<br class="sp-only">SNSかメールにてお願いいたします。
+            <!-- お問い合わせは、<br class="sp-only">SNSかメールにてお願いいたします。-->
           </p>
           <div class="contact-list">
-            <a class="contact-item" href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
-            <a class="contact-item" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-            <span class="contact-item">xxxxxx@gmail.com</span>
+            <!-- <a class="contact-item" href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a> 
+            <a class="contact-item" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>--> 
+            <span class="contact-item">phoshaw8pri@gmail.com</span>
           </div>
         </div>
       </section>
