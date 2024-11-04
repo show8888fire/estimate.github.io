@@ -671,7 +671,7 @@ class ProcessApp(TkinterDnD.Tk):
             if process_data['process_var'] == 'タップ':
                 first_value = process_data['input_values'][0]
                 first_value_str = f"M{int(first_value)}"  # 例：8なら"M8"とする
-                pitch_value = tap_pitch_table.get(first_value_str, "N/A")
+                pitch_value = tap_pitch_table.get(first_value_str, 0)
                 process_data['input_values'].append(pitch_value)   # 3番目の値としてピッチをセット
                 print(f"Updated pitch for {process_uuid}: {pitch_value}")
 
