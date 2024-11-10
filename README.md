@@ -69,10 +69,11 @@ JavaScriptの経験を踏まえ、次のステップとしてPythonを学びた�
 - 「画像読み込み」ボタンの横にあるフィールドに画像ファイル名を入力し、ボタンを押すと画像処理が開始され、結果がJSONファイルに保存されます。
 - 検出にはcv2、pyocr、pytesseractの3つを使用し、精度の高い検出を実現しています。
 
-- <span style="color: green;">緑の線</span>: 円  
-- <span style="color: red;">赤い線</span>: 円との接線  
-- <span style="color: purple;">紫の線</span>: 赤い線との接線  
-- <span style="color: blue;">青い線</span>: それ以外の線  
+##### 線の色分け
+ <span style="color: green;">緑の線</span>: 円  
+ <span style="color: red;">赤い線</span>: 円との接線  
+ <span style="color: purple;">紫の線</span>: 赤い線との接線  
+ <span style="color: blue;">青い線</span>: それ以外の線  
 
 
 ## コーディング
