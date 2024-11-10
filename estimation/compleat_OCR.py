@@ -11,6 +11,8 @@ import re
 import json
 import uuid 
 import os
+from estimation_app import EstimationApp
+import tkinter as tk
 
 circled_numbers = {
     '①': '1', '②': '2', '③': '3', '④': '4', '⑤': '5',
@@ -89,7 +91,10 @@ class search_word():
         img_con = enhancer.enhance(2.0)  # コントラストを上げる
 
         # 画像からOCRで日本語を読んで、文字列として取り出す
-        txt_pyocr = tool.image_to_string(img_con, lang='jpn+eng', builder=builder)
+        txt_speocr = tool.image_to_string(img_con, lang='eng+jpn', builder=builder)
+        txt_faiocr = tool.image_to_string(img_con, lang='grc', builder=builder)
+        txt_pyocr = txt_faiocr + '\n' + txt_speocr
+
         # OCRの出力テキストを変換
         for circled_num, normal_num in circled_numbers.items():
             txt_pyocr = txt_pyocr.replace(circled_num, normal_num)
@@ -271,14 +276,14 @@ class contackt_circle():
             for i, c in enumerate(circles[0, :]):
 
                 circle_center = (c[0], c[1])
-                circle_center = self.convert_to_standard_types(circle_center)
                 full_circle = list(j for j in c)
                 full_circle = self.convert_to_standard_types(full_circle)
-                
+                circle_center = self.convert_to_standard_types(circle_center)
                 self.circles_list.append(full_circle)
-                data = pytesseract.image_to_data(py_img, output_type=pytesseract.Output.DICT)# OCR処理を実行し、文字と位置情報を取得
+                data = pytesseract.image_to_data(gray, output_type=pytesseract.Output.DICT)# OCR処理を実行し、文字と位置情報を取得
 
                 deep_copy = copy.deepcopy(self.word_dict)
+                none_dict = {}
 
 
                 for i in range(len(data['text'])):
@@ -295,7 +300,7 @@ class contackt_circle():
                             center_x = x + w / 2
                             center_y = y
 
-                            result, word, txt_x = self.feltering_text(text_data, deep_copy, center_x)
+                            result, word, txt_x = self.feltering_text(text_data, deep_copy, center_x, none_dict, data['text'])
 
                             print('fainal check dict', self.process_word)
 
@@ -312,12 +317,10 @@ class contackt_circle():
                                         self.text_underline(txt_x, center_y, full_text, full_circle, gray)
             self.thur = 0
             self.up_count += 1
-        
-
             
 
-    def feltering_text(self, text, deep_copy, x):
-        none_dict = {}
+    def feltering_text(self, text, deep_copy, x, none_dict, data):
+        posi_dict = {}
         idx = 1
         for word, enum in deep_copy.items():
             print('word', word, 'dict', deep_copy)
@@ -331,36 +334,65 @@ class contackt_circle():
                     del deep_copy[word]
                     print('word', word, 'dict', deep_copy)
                     return True, word, x
-                return False, None, x
-            
-            else:
-
-                    print('none_word is', text)
-                    none_dict[word] = x
-                    print('none', none_dict)
                 
+            
+            elif any(w in word and w in text for w in word_list):
+                        
+                    if word in none_dict:
+                        posi_dict[text] = x
+                        none_dict[word].append(posi_dict)
+                        print('none_dict2', none_dict)
+
+                    else:
+
+                        print('none_word is', text)
+                        posi_dict[text] = x
+                        
+                        print('posi_dict', posi_dict)
+                        none_dict[word] = [posi_dict]
+                        print('none_dict', none_dict)
+            
+            elif none_dict:
+                    print('none_dict[word] items', none_dict[word])
+                    if data.index(text) == data.index(next(iter(none_dict['M8x20'][0].keys()))) + 1:
+                        posi_dict[text] = x
+                        none_dict[word].append(posi_dict)
+                        print('none_dict3', none_dict)
+
+
+
+      
         if none_dict:
-            if len(list(none_dict.keys())) > 1:
+            word = next(iter(none_dict))
+            print('none_check', none_dict[word], len(none_dict[word]))
+            if len(none_dict[word]) > 1:
+                print('thor')
 
                 for idx in range(idx):
                 
-                            if self.none_word_check(list(none_dict.keys()), idx, enum):
-                                    join_word = ''.join(none_dict[word])
-                                    txt_x = sum(none_dict.values()) / len(none_dict.values())
+                            if self.none_word_check(none_dict[word], idx, enum):
+                                    keys = [list(d.keys())[0] for d in none_dict[word]]
+                                    values = [list(d.values())[0] for d in none_dict[word]]
+
+                                    join_word = ''.join(keys)
+                                    txt_x = sum(values) / len(values)
+                                    print('create_word', join_word, txt_x)
+
+                                    del none_dict[word]
+
                                     return True, join_word, txt_x
             
             
             else:
-                for word, enum in self.word_dict.items():
-                #文字数の一致と使用している文字の部分一致
-                    if len(enum)-2 < len(text) < len(enum)+2:
 
-
-                        if any(t in enum for t in text):
-
-                            return True, word, x
                     return False, None, x
-            return False, None, x
+            
+        elif len(deep_copy) == 1:
+            word = next(iter(deep_copy.keys())) 
+            return True, word, x
+            
+        else:
+                return False, None, x
 
 
     def none_word_check(self, none_word, idx, enum):
@@ -639,29 +671,24 @@ class contackt_circle():
 
             
     # 結果を表示
-    def cv2_result(self, gray):        
-        cv2.imshow('Detected Circles and Lines', gray)
+    def cv2_result(self):        
+        cv2.imshow('Detected Circles and Lines', self.gray)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
 
-from estimation_app import EstimationApp
-import tkinter as tk
 
-class generate_json_data:
+class generate_json_data():
     def __init__(self, contackt):
 
 
         # Create an instance and access process_word
         app = contackt
 
-        root = tk.Tk()
-        ori = EstimationApp()
-
         process_word = app.process_word
         circles_list = app.circles_list
 
-        origin_depth = ori.depth_var.get()
+        olrigin_depth = 0
 
         quantity_list = ['x', '-', ' ']
 
@@ -683,7 +710,7 @@ class generate_json_data:
             new_word = []
             del_list = []
             
-            word = re.findall(r'[A-Za-zぁ-んァ-ン一-龯]+|\d+|\+|\-|\.', word)  # +や-も見つける
+            word = re.findall(r'[A-Za-zぁ-んァ-ン一-龯]+|\d+|\+|\-|\.|\φ', word)  # +や-も見つける
             print('word is ' ,word)
             for i, w in enumerate(word):
                 if w.isdigit():
@@ -765,7 +792,7 @@ class generate_json_data:
                 process_var = "穴あけ"
 
             
-            elif func == 'phole_process':
+            elif func == 'hole_process':
                 first_num = individual_words['first_num'].get() 
                 if first_num > 20:
                     word += 'P'
@@ -804,7 +831,7 @@ class generate_json_data:
 
                 if len(list(input_values_dick.keys())) == 1:
 
-                        second_para = origin_depth
+                        second_para = olrigin_depth
                         input_values_dick['second_para'] = second_para
                     
             if len(input_values_dick.keys()) == 3 :
@@ -840,9 +867,10 @@ class generate_json_data:
 
         process_dict = {
             'tap_process' : ["M","タップ"],
-            'hole_process' : ["キリ"],
+            'hole_process' : ["キリ", "φ"],
             'poket_process' : ["P"],
         }
+
 
 
         for word in process_word.keys():
@@ -851,7 +879,7 @@ class generate_json_data:
                 if any(p_w in word for p_w in per_words):
                     process_setting(word, process_func)
                 else:
-                    process_func = 'phole_process'
+                    process_func = 'hole_process'
                     per_words = ''
                     process_setting
 
@@ -877,7 +905,7 @@ class generate_json_data:
 
 
 if __name__ == "__main__":
-    share_image = 'M8.png'
+    share_image = 'useM8.png'
     # 使用例
     search = search_word(share_image)  # search_wordのインスタンスを作成
     contackt = contackt_circle(share_image, search)  # search_wordのインスタンスをcontackt_circleに渡す
